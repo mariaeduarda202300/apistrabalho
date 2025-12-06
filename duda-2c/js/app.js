@@ -8,7 +8,7 @@ function mostrarSecao(secaoId) {
 }
 
 /* ============================================
-   API 1 – PERSONAGENS & LOCAIS (cards)
+    API 1 – PERSONAGENS & LOCAIS (cards)
 ============================================ */
 const api1 = [
     { nome: "Geralt de Rívia", tipo: "Personagem", descricao: "Bruxo lendário, conhecido como Lobo Branco. É o protagonista da saga." },
@@ -29,10 +29,26 @@ function carregarPersonagens() {
     const container = document.getElementById("lista-personagens");
     if (!container) return;
     container.innerHTML = "";
+    
     api1.forEach(item => {
+        
+        // 1. CRIA O NOME DO ARQUIVO PADRONIZADO (em minúsculas, com underscore)
+        const nomeArquivo = item.nome
+            .toLowerCase()
+            .replace(/\s/g, '_') // Substitui espaços por underscore
+            .replace(/[()]/g, ''); // Remove caracteres como parênteses
+            
+        // 2. CONSTRÓI O CAMINHO DA IMAGEM (../img/ é o caminho correto)
+        const caminhoImagem = `../img/${nomeArquivo}.jpg`; // Se suas imagens são PNG, mude para .png
+
         const card = document.createElement("div");
         card.className = "card-personagem";
         card.innerHTML = `
+            <img 
+                src="${caminhoImagem}" 
+                alt="${item.nome}"
+                onerror="this.style.display='none'"
+            > 
             <h3>${item.nome}</h3>
             <div class="tipo">${item.tipo}</div>
             <p>${item.descricao}</p>
@@ -42,8 +58,8 @@ function carregarPersonagens() {
 }
 
 /* ============================================
-   API 2 – NOTÍCIAS (cada ponto vira um card)
-   Opção 2: cards menores, "ler mais" expansível
+    API 2 – NOTÍCIAS (cada ponto vira um card)
+    Opção 2: cards menores, "ler mais" expansível
 ============================================ */
 
 const api2 = [
@@ -155,7 +171,7 @@ function carregarNoticias() {
 }
 
 /* ============================================
-   API 3 – IMAGENS
+    API 3 – IMAGENS (usando URLs externas)
 ============================================ */
 const api3 = [
     { url: "https://m.media-amazon.com/images/I/71tNwrDWlRL._AC_UF894,1000_QL80_.jpg", nome: "Geralt" },
@@ -176,7 +192,7 @@ function carregarImagens() {
 }
 
 /* ============================================
-   API 4 – VÍDEOS
+    API 4 – VÍDEOS
 ============================================ */
 const api4 = [
     { url: "https://www.youtube.com/embed/ndl1W4ltcmg", nome: "Trailer The Witcher (Netflix)" },
@@ -199,8 +215,8 @@ function carregarVideos() {
 }
 
 /* ============================================
-   CURSOR: ESPADA SEGUINDO O MOUSE (desktop only)
-   - Não ativa em touch devices (pointer: fine)
+    CURSOR: ESPADA SEGUINDO O MOUSE (desktop only)
+    - Não ativa em touch devices (pointer: fine)
 ============================================ */
 (function initSwordCursor() {
     const espada = document.getElementById("cursor-espada");
@@ -229,7 +245,7 @@ function carregarVideos() {
 })();
 
 /* ============================================
-   INICIALIZAÇÃO
+    INICIALIZAÇÃO
 ============================================ */
 window.onload = () => {
     carregarPersonagens();
