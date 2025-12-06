@@ -1,0 +1,262 @@
+/* ---------------------------
+   RESET & BODY
+----------------------------*/
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* ---------------------------
+   HEADER / NAV
+----------------------------*/
+.titulo-terror {
+    font-family: 'Creepster', cursive;
+    font-size: 56px;
+    text-align: center;
+    color: #fff;
+    margin: 18px 0 6px;
+}
+
+header {
+    text-align: center;
+    padding: 10px 20px 22px;
+}
+
+nav button {
+    margin: 8px;
+    padding: 10px 18px;
+    background-color: #111;
+    border: 2px solid #fff;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+}
+
+nav button:hover {
+    background: #fff;
+    color: #000;
+}
+
+/* ---------------------------
+   SEÇÕES
+----------------------------*/
+.secao {
+    display: none;
+    padding: 18px;
+}
+
+/* ---------------------------
+   PERSONAGENS - CARDS PERGAMINHO
+----------------------------*/
+#lista-personagens {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.card-personagem {
+    background: url("https://i.imgur.com/pS3vT5O.jpeg");
+    background-size: cover;
+    border: 2px solid #3b0000;
+    padding: 18px;
+    margin: 8px;
+    border-radius: 8px;
+    color: #fff;
+    max-width: 720px;
+    width: 100%;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.8);
+    transition: transform 0.18s ease, box-shadow 0.24s ease, border-color 0.24s;
+}
+
+.card-personagem:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 36px rgba(200, 0, 0, 0.12);
+    border-color: #bf0000;
+}
+
+.card-personagem h3 {
+    font-family: 'Creepster', cursive;
+    font-size: 28px;
+    margin: 0 0 6px;
+    color: #ffdede;
+    text-shadow: 0 0 6px #900;
+}
+
+.card-personagem .tipo {
+    font-size: 14px;
+    color: #ffc7c7;
+    font-style: italic;
+    margin-bottom: 8px;
+}
+
+.card-personagem p {
+    font-size: 16px;
+    line-height: 1.45;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+}
+
+/* ---------------------------
+   NOTÍCIAS - GRID DE CARDS PEQUENOS
+----------------------------*/
+.grid-noticias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+    align-items: start;
+}
+
+/* card de notícia (estilo pergaminho menor) */
+.card-noticia {
+    background: linear-gradient(180deg, rgba(20, 20, 20, 0.95), rgba(12, 12, 12, 0.95));
+    border: 2px solid #3b0000;
+    padding: 14px;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+    transition: transform 0.16s ease, box-shadow 0.2s ease, border-color 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-noticia:hover {
+    transform: translateY(-6px);
+    border-color: #b20000;
+    box-shadow: 0 18px 32px rgba(178, 0, 0, 0.08);
+}
+
+.card-noticia .categoria {
+    font-weight: 700;
+    font-size: 13px;
+    margin-bottom: 6px;
+    display: inline-block;
+    background: rgba(180, 0, 0, 0.08);
+    padding: 4px 8px;
+    border-radius: 6px;
+    color: #ffd7d7;
+}
+
+.card-noticia h4 {
+    margin: 6px 0 8px;
+    font-size: 18px;
+    color: #fff3f3;
+    text-shadow: 0 0 6px #600;
+}
+
+.card-noticia .resumo {
+    font-size: 14px;
+    line-height: 1.4;
+    color: #efecec;
+    max-height: 5.2em;
+    /* cerca de 3 linhas */
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+}
+
+.card-noticia .detalhes {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #f6f0f0;
+    display: none;
+}
+
+/* ler mais */
+.btn-ler {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    background: #3b0000;
+    color: #fff;
+    border: 1px solid #7a0000;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.btn-ler:hover {
+    opacity: 0.9;
+}
+
+/* estado aberto */
+.card-noticia.aberto .resumo {
+    max-height: 999px;
+}
+
+.card-noticia.aberto .detalhes {
+    display: block;
+}
+
+/* ---------------------------
+   GALERIA & VÍDEOS
+----------------------------*/
+.galeria {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+}
+
+.galeria img {
+    width: 200px;
+    margin: 10px;
+    border: 2px solid #fff;
+}
+
+.videos {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}
+
+.videos iframe {
+    max-width: 90%;
+    border: 2px solid #fff;
+}
+
+/* ---------------------------
+   CURSOR - ESPADA (desktop only)
+----------------------------*/
+#cursor-espada {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    pointer-events: none;
+    background-image: url('/img/EspadaMedievalRefletidaemAco.png');
+
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: drop-shadow(0 0 6px #b00000);
+    transform: translate(-50%, -50%) rotate(20deg);
+    z-index: 9999;
+    display: none;
+    transition: transform 0.8s linear;
+}
+
+/* ---------------------------
+   RESPONSividade
+----------------------------*/
+@media (max-width: 720px) {
+    .titulo-terror {
+        font-size: 40px;
+    }
+
+    .card-personagem {
+        max-width: 95%;
+        padding: 14px;
+    }
+
+    #cursor-espada {
+        display: none !important;
+    }
+
+    /* garante que touch não mostre */
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <title>The Witcher - Enciclopédia Sombria</title>
+
+    <!-- Fonte estilo terror -->
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/estilos.css" />
+</head>
+<body>
+
+<header>
+    <h1 class="titulo-terror">The Witcher – Enciclopédia Sombria</h1>
+    <nav>
+        <button onclick="mostrarSecao('personagens')">Personagens & Locais</button>
+        <button onclick="mostrarSecao('noticias')">Notícias</button>
+        <button onclick="mostrarSecao('imagens')">Imagens</button>
+        <button onclick="mostrarSecao('videos')">Vídeos</button>
+    </nav>
+</header>
+
+<main>
+
+    <!-- API 1 – Personagens e Locais -->
+    <section id="personagens" class="secao">
+        <h2>Personagens & Locais</h2>
+        <div id="lista-personagens"></div>
+    </section>
+
+    <!-- API 2 – Notícias -->
+    <section id="noticias" class="secao" style="display:none;">
+        <h2>Notícias Oficiais da Franquia</h2>
+        <div id="lista-noticias" class="grid-noticias"></div>
+    </section>
+
+    <!-- API 3 – Imagens -->
+    <section id="imagens" class="secao" style="display:none;">
+        <h2>Galeria de Imagens</h2>
+        <div id="lista-imagens" class="galeria"></div>
+    </section>
+
+    <!-- API 4 – Vídeos -->
+    <section id="videos" class="secao" style="display:none;">
+        <h2>Vídeos e Trailers</h2>
+        <div id="lista-videos" class="videos"></div>
+    </section>
+
+</main>
+
+<!-- Espada que segue o cursor (apenas desktop) -->
+<div id="cursor-espada" aria-hidden="true"></div>
+
+<script src="/Js/app.js"></script>
+</body>
+</html>
